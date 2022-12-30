@@ -130,7 +130,14 @@ System.out.println("con====>"+con);
 /*
  * JDBC API를 이용하여 DB연동하기
  * 1.각 제조사가 제공하는 드라이버 클래스를 로딩(ojdbc6.jar)
+ * Class,forName(드라이버클라스(패키지까지 포함해서));
+ * 
  * 2.오라클서버와 연결 통로를 확보
+ * Connection 은 인터페이스이다.-오른쪽에 구현체 클래스가 와야 한다
+ *메소드인데 인스턴스화를 해준다??? ㄱㄴ???ㅁㅇㅁㅇ???? new가 없는데 객체는 왜 만들어짐?????????????
+ *
+ * 
+ * Connection con = DriverManager.getConnection(URL,"scott","tiger");
  * 3.DML문을 자바에서 오라클서버로 전달해 줄 인터페이스를 생성한다.(Statement:정적쿼리문, PreparedStatement:동적쿼리문지원)
  * 4,SELECT문의 경우 오라클 서버에서 제공하는 커서를지원하는 ResultSet인터페이스를 활용하여 
  * 테이블에 제공되는 커서를 조작하여  해당 로우에 데이터가 존재하면 Cursor....open....fetch과정을 통해서
