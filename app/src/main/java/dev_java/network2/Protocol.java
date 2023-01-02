@@ -10,7 +10,7 @@ public class Protocol {
     public static final String separator="#";
 }
 /*
- * final가 클래스 앞에 오면 상속을 못함
+ * final이  클래스 앞에 오면 상속을 못함
  *             메소드 앞에 오면 메소드 오버라이딩 못함
  *             변수앞에 오면 상수임
  */
