@@ -1,0 +1,16 @@
+List<DeptVO>  &  List<Map>
+1.첫번째 제네릭 타입 DeptVO
+초기화 저장
+pribate int deptno;
+private String dname;
+private String loc;
+
+2.두번째 제네릭 타입 Map  컬럼- 제네릭-> 타입=Object -> 형전환 캐스팅연산자
+연산을 해야하니까 +,-,*,/,%
+CastingExceptionError
+초기화 저장
+둘의 차이점???
+차이로 인해 나타나는 결과물의 장단점
+
+ORM솔루션 중-MyBatis연계(반자동)-> Hibernate(DML문 자체가 없다=완전자동)
+                            에스프레소 머신                 커피포트
