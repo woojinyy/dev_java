@@ -54,7 +54,7 @@ private String getName() {
 
 private void run() throws IOException {
     String serverAddress = getServerAddress();
-    Socket socket = new Socket(serverAddress, ChatServer.PORT);
+    Socket socket = new Socket(serverAddress, 9999);
     in = new BufferedReader(new InputStreamReader(
         socket.getInputStream()));
     out = new PrintWriter(socket.getOutputStream(), true);

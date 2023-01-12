@@ -57,7 +57,9 @@ public class TalkClient extends JFrame implements ActionListener{
 			ois = new ObjectInputStream(socket.getInputStream());
 			//initDisplay에서 닉네임이 결정된 후 init메소드가 호출되므로
             //new ServerSocket(3000)이 받아서 accept()통해서 client 소켓에 저장됨
-            //서버쪽에있는 소켓이 두개예요 하나는 그냥 받는거 ex)"안녕하십니까 여기는 어디입니다 대기시간 30분입니다 어쩔?" 안내자가 넘겨받아서 다음 단계로 넘어간다
+            //서버쪽에있는 소켓이 두개예요 하나는 그냥 받는거 
+            //ex)"안녕하십니까 여기는 어디입니다 대기시간 30분입니다 
+            //어쩔?" 안내자가 넘겨받아서 다음 단계로 넘어간다
             //init디스플레이 띄워놓고 대기 
 			//서버에게 내가 입장한 사실을 알린다.(말하기)
 			oos.writeObject(100+Protocol.separator+nickName);
@@ -81,15 +83,15 @@ public class TalkClient extends JFrame implements ActionListener{
         jtf_msg.addActionListener(this);
         //사용자의 닉네임 받기//jtable에 붙일거임
         nickName = JOptionPane.showInputDialog("닉네임을 입력하세요.");
-        this.setLayout(new GridLayout(1,2));
-        jp_second.setLayout(new BorderLayout());
-        jp_second.add("Center",jsp);
-        jp_second_south.setLayout(new GridLayout(2,2));
-        jp_second_south.add(jbtn_one);
-        jp_second_south.add(jbtn_change);
-        jp_second_south.add(jbtn_font);
-        jp_second_south.add(jbtn_exit);
-        jp_second.add("South",jp_second_south);
+        //this.setLayout(new GridLayout(1,2));
+        // jp_second.setLayout(new BorderLayout());
+        // jp_second.add("Center",jsp);
+        // jp_second_south.setLayout(new GridLayout(2,2));
+        // jp_second_south.add(jbtn_one);
+        // jp_second_south.add(jbtn_change);
+        // jp_second_south.add(jbtn_font);
+        // jp_second_south.add(jbtn_exit);
+        // jp_second.add("South",jp_second_south);
         jp_first.setLayout(new BorderLayout());
         jp_first_south.setLayout(new BorderLayout());
         jp_first_south.add("Center",jtf_msg);
@@ -99,7 +101,7 @@ public class TalkClient extends JFrame implements ActionListener{
         jp_first.add("South",jp_first_south);
         this.add(jp_first);
         this.add(jp_second);
-        this.setSize(800, 550);
+        this.setSize(300, 600);
         this.setVisible(true);
     }
     //메인

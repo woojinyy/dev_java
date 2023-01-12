@@ -30,9 +30,9 @@ public class Pchat extends JFrame implements KeyListener {
        jtf_messageField.addKeyListener(new KeyAdapter() {
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                String message = textField.getText();
+                String message = jtf_messageField .getText();
                 writer.println(message);
-                textField.setText("");
+                jtf_messageField .setText("");
             }
         }
     });
@@ -65,14 +65,30 @@ public class Pchat extends JFrame implements KeyListener {
     public static void main(String[] args) {
         new Pchat();
     }
-    
+
+
+
+
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            out.println(jtf_messageField.getText());
+        // TODO Auto-generated method stub
+        
+    }
+
+}
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                out.println(jtf_messageField.getText());
-
+        // TODO Auto-generated method stub
+        
     }
 }
-
-}
-    

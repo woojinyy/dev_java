@@ -10,31 +10,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatServer {
-    private static final int PORT = 9999;
+int PORT = 9999;
 
-    private static List<PrintWriter> writers = new ArrayList<>();
+
 
     public static void main(String[] args) throws IOException {
         System.out.println("Chat Server is running...");
 
-        try (ServerSocket listener = new ServerSocket(PORT)) {
+        try (ServerSocket listener = new ServerSocket(9999)) {
             while (true) {
                 new Handler(listener.accept()).start();
             }
         }
     }
 
-    private static class Handler extends Thread {
-        private String name;
-        private Socket socket;
-        private BufferedReader in;
-        private PrintWriter out;
+    public  static class Handler extends Thread {
+        String name;
+        Socket socket;
+        BufferedReader in;
+        PrintWriter out;
 
         public Handler(Socket socket) {
             this.socket = socket;
         }
 
         public void run() {
+           
+     List<PrintWriter> writers = new ArrayList<>();
             try {
                 in = new BufferedReader(new InputStreamReader(
                         socket.getInputStream()));
