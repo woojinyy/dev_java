@@ -3,6 +3,7 @@ package dev_java.oracle;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class EmpList {
     ResultSet rs= null;
     OracleCallableStatement ocstmt=null;
     public List<Map<String,Object>> getEmpList(){
-        List<Map<String, Object>> list= null;
+        List<Map<String, Object>> list=new ArrayList<>();
         try {
             con = dbMgr.getConnection("scott","tiger");// 물리적으로 떨어져있는 오라클서버와 연결통로
             //con = dbMgr.getConnection("kiwi","tiger");// 물리적으로 떨어져있는 오라클서버와 연결통로
@@ -27,10 +28,11 @@ public class EmpList {
             cstmt.execute();
             cstmt.registerOutParameter(1, OracleTypes.CURSOR);
             //굳이 추가로 제공되는 클래스로 치환하는 것은 resultSet을 주입받는 메소드 호출이 필요하기때문에
-            //resultset을 선언했으니까 ocstmt.getCursor(1)넣으ㅕㄴ
-           // callablesstatement에서는 getCursor()를 지원하지 않기 때문에 형전환 하였다
-
+            //resultset을 선언했으니까 ocstmt.getCursor(1)넣으면
+           
+            // callablesstatement에서는 getCursor()를 지원하지 않기 때문에 형전환 하였다
             ocstmt= (OracleCallableStatement)cstmt;
+            
             rs= ocstmt.getCursor(1);
             Map<String,Object> rmap= null;//게으른 인스턴스화
             while(rs.next()){
@@ -50,6 +52,14 @@ public class EmpList {
         return list;
 
     }
+    //프로시저 안에서는 여러가지의 DML문을 한 번 서버에 접속한 상태에서
+    //한번에 처리가 가능하다
+    //commit, rolback 까지 가능함
+    //자바로 꺼내서 처리하지 않고 프로시저 내부에서 비즈니스 로직(업무포함한프로세스)
+    //처리가능 = 변수에 대한 활용과 제어문 사용 가능 굳이 자바와 오라클 사이에서
+    //들어왔따 나갔다 할 필요가 없이 오라클 내부에서 프로시저가 자바가 해야할 일까지 커버가능
+
+
     public static void main(String[] args) {
         EmpList eList = new EmpList();
         List<Map<String,Object>>list =eList.getEmpList();
