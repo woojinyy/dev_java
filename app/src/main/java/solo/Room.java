@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.*;
-public class Room extends JFrame {
+public class Room extends JFrame implements ActionListener {
     JTextArea textArea = new JTextArea(15,38);
     JTextField textField= new JTextField();
     JButton jbtn_send  = new JButton("전송");
@@ -45,6 +45,11 @@ public class Room extends JFrame {
     }
     public static void main(String[] args) {
         Room client = new Room();
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        
     }
 }
 class ChatClientThread extends Thread {

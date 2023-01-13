@@ -35,8 +35,7 @@ public class Room extends JFrame implements ActionListener {
 
         // 채팅창의 기본 구성과 패널을 프레임에 추가
         this.setLayout(new BorderLayout());
-        this.add(new JScrollPane(chatArea), BorderLayout.CENTER);
-        this.add(panel, BorderLayout.SOUTH);
+        
 
         // 프레임 설정
         this.setTitle("바나나");
@@ -57,7 +56,9 @@ public class Room extends JFrame implements ActionListener {
        // Thread receiver = new Thread(new Receiver());
        // receiver.start();
     }
-
+public static void main(String[] args) {
+    
+}
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
