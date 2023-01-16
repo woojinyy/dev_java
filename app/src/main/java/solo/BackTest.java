@@ -6,7 +6,7 @@ public class BackTest extends JFrame {
    ImageIcon iicon = new ImageIcon(imgPath + "main.png");
    Container con = this.getContentPane();
 
-   public JTextPaneImage() {
+   public BackTest() {
       // setUndecorated(true);
       // AWTUtilities.setWindowOpaque(this, false);
       // this.setContentPane(mp);
@@ -40,7 +40,7 @@ public class BackTest extends JFrame {
    }
 
    public static void main(String[] args) {
-      new JTextPaneImage();
+      new BackTest();
    }
 }
-}
+
